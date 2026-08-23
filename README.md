@@ -291,7 +291,6 @@ HRIS Diversio/
 ├── manage.py
 ├── sample_hris.csv
 ├── README.md
-└── db.sqlite3
 ```
 
 ---
