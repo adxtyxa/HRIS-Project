@@ -1,0 +1,36 @@
+<details class="result-section">
+    <summary>
+        <span>Managers</span>
+        <span class="count">
+            {{ results.managers|length }} managers
+        </span>
+    </summary>
+
+    <div class="section-content">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Direct Reports</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for manager in results.managers %}
+
+                <tr>
+                    <td>{{ manager.employee_id }}</td>
+                    <td>{{ manager.employee_name }}</td>
+                    <td>{{ manager.direct_reports }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</details>

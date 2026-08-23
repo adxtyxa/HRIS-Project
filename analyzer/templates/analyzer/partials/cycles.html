@@ -1,0 +1,38 @@
+<details class="result-section">
+    <summary>
+        <span>Reporting Cycles</span>
+        <span class="count">
+            {{ results.cycles|length }} cycles
+        </span>
+    </summary>
+
+    <div class="section-content">
+
+        {% if results.cycles %}
+
+            {% for cycle in results.cycles %}
+
+                <div class="cycle">
+                    {% for employee_id in cycle %}
+                        <span class="employee-tag">
+                            {{ employee_id }}
+                        </span>
+
+                        {% if not forloop.last %}
+                            <span class="arrow">→</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="success-state">
+                No reporting cycles detected.
+            </p>
+
+        {% endif %}
+
+    </div>
+</details>

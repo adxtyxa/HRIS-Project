@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HRIS Analyzer</title>
+    <link rel="stylesheet" href="{% static 'analyzer/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>HRIS Analyzer</h1>
+        <p>Upload an HRIS CSV to analyze employee reporting structures.</p>
+    </div>
+
+
+    <div class="upload-card">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            <input
+                type="file"
+                name="csv_file"
+                accept=".csv"
+                required
+            >
+
+            <button type="submit">
+                Analyze CSV
+            </button>
+
+        </form>
+
+    </div>
+
+
+    {% if error %}
+
+        <div class="error-box">
+            <strong>Error</strong>
+            <p>{{ error }}</p>
+        </div>
+
+    {% endif %}
+
+
+    {% if results %}
+
+        {% include "analyzer/partials/summary.html" %}
+
+        {% include "analyzer/partials/accepted_employees.html" %}
+
+        {% include "analyzer/partials/validation_errors.html" %}
+
+        {% include "analyzer/partials/roots.html" %}
+
+        {% include "analyzer/partials/managers.html" %}
+
+        {% include "analyzer/partials/cycles.html" %}
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

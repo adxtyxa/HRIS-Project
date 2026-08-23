@@ -1,0 +1,36 @@
+<details class="result-section">
+    <summary>
+        <span>Validation Errors</span>
+        <span class="count">
+            {{ results.invalid_rows|length }} errors
+        </span>
+    </summary>
+
+    <div class="section-content">
+
+        {% if results.invalid_rows %}
+
+            {% for error in results.invalid_rows %}
+
+                <div class="validation-error">
+                    <strong>Row {{ error.row }}</strong>
+
+                    <ul>
+                        {% for message in error.errors %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="success-state">
+                No validation errors found.
+            </p>
+
+        {% endif %}
+
+    </div>
+</details>

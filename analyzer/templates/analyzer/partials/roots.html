@@ -1,0 +1,44 @@
+<details class="result-section">
+    <summary>
+        <span>Root Employees</span>
+        <span class="count">
+            {{ results.roots|length }} employees
+        </span>
+    </summary>
+
+    <div class="section-content">
+
+        {% if results.roots %}
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for employee in results.roots %}
+
+                    <tr>
+                        <td>{{ employee.employee_id }}</td>
+                        <td>{{ employee.employee_name }}</td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        {% else %}
+
+            <p class="empty-state">
+                No root employees found.
+            </p>
+
+        {% endif %}
+
+    </div>
+</details>
