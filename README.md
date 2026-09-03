@@ -228,12 +228,6 @@ The implementation primarily uses dictionaries, lists, and sets.
 
 ---
 
-## Development Time
-
-Approximately **1 hour 15 minutes**, from around **6:30 PM to 7:45 PM**.
-
----
-
 ## AI Tool Usage
 
 AI tools were used as development aids, while the core logic and application integration were implemented and understood by me.
